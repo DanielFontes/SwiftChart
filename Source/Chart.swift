@@ -318,17 +318,21 @@ open class Chart: UIControl {
         min = minMax.min
         max = minMax.max
 
-        // highlightShapeLayer = nil
-
         // Remove things before drawing, e.g. when changing orientation
 
         for view in self.subviews {
             view.removeFromSuperview()
         }
         for layer in layerStore {
-            layer.removeFromSuperlayer()
+            if (layer != highlightShapeLayer) {
+                layer.removeFromSuperlayer()
+            }
         }
-        layerStore.removeAll()
+        if (highlightShapeLayer != nil) {
+            layerStore = [highlightShapeLayer]
+        } else {
+            layerStore.removeAll()
+        }
 
         // Draw content
 
