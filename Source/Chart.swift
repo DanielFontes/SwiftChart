@@ -318,7 +318,7 @@ open class Chart: UIControl {
         min = minMax.min
         max = minMax.max
 
-        highlightShapeLayer = nil
+        // highlightShapeLayer = nil
 
         // Remove things before drawing, e.g. when changing orientation
 
